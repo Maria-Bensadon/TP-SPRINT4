@@ -4,15 +4,15 @@ import { useAPI } from "../hooks/useAPI";
 // 1. crear el contexto
 const ContextoApi = createContext(null); 
 
-// 2. proovedor
+// 2. proveedor
 export const ApiProvider = ({ children}) => {
 
     const url = 'https://rickandmortyapi.com/api/character'; 
-    const datosAPI = useAPI(url); 
+    const { datos, cargando, error } = useAPI(url); 
     console.log("contexto"); 
 
     return(
-        <ContextoApi.Provider value= {datosAPI} >
+        <ContextoApi.Provider value= {{ datos, cargando, error }} >
             {children}
         </ContextoApi.Provider>
     ); 
