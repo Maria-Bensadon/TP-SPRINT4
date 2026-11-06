@@ -3,32 +3,37 @@ import { useState, useEffect } from "react";
 export const useAPI = (url) => {
   const [datos, setDatos] = useState([]);
   const [cargando, setCargando] = useState(false);
-  console.log("cargando =>", cargando);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchApi = async () => {
-
       setCargando(true);
       setError(null);
 
-      // bloque try catch
       try {
         const respuesta = await fetch(url);
 
-        if (!respuesta) {
-          console.error("error al obtener los datos");
+        // fetch NO lanza ante un 404/500: siempre resuelve un Response.
+        // Hay que mirar respuesta.ok para detectar errores HTTP.
+        if (!respuesta.ok) {
+          // 404 en la búsqueda de Rick and Morty = "sin resultados", no un error de carga
+          if (respuesta.status === 404) {
+            setDatos({ results: [] });
+            return;
+          }
+          throw new Error("Error al cargar");
         }
 
         const resultado = await respuesta.json();
         setDatos(resultado);
-        //console.log(resultado);
 
-      } catch (error) {
+      } 
+      
+      catch (error) {
         setError(error);
-        //console.error("error al usar la api", error);
-        
-      } finally {
+      } 
+      
+      finally {
         setCargando(false);
       }
     };

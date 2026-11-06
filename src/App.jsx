@@ -46,7 +46,6 @@ function App() {
         {!cargando && !error && (
           <ListaPersonajes
             personajes={personajes}
-            busqueda={busqueda}
             favorito={favorito}
             agregarFavorito={agregarFavorito}
           />
