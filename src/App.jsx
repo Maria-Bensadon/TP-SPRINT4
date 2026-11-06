@@ -7,6 +7,7 @@ import { useToogle } from "./hooks/useToggle";
 import { BarraNavegacion } from "./layout/Navbar";
 import { useListaFavoritos } from "./hooks/useFavorito";
 import { ListarFavoritos } from "./components/FavouriteList";
+import { Footer } from "./layout/Footer";
 
 function App() {
 
@@ -50,6 +51,9 @@ function App() {
             agregarFavorito={agregarFavorito}
           />
         )}
+      </div>
+      <div>
+        <Footer/>
       </div>
     </>
   );
