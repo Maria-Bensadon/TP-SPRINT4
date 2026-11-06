@@ -1,5 +1,4 @@
-// // padre de card, hijo de app
-import { useListaFavoritos } from "../hooks/useFavorito";
+// padre de card, hijo de app
 import { Card } from "./CardList";
 
 export const ListaPersonajes = ({ personajes, busqueda, favorito, agregarFavorito }) => {
@@ -15,7 +14,7 @@ export const ListaPersonajes = ({ personajes, busqueda, favorito, agregarFavorit
 
       {personajesFiltrados.length === 0 && (
         <p className="text-on-surface-variant italic">
-          Proba con otro personaje 👀
+          Proba con otro personaje 👀 ...
         </p>
       )}
 

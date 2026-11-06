@@ -16,7 +16,7 @@ export const ApiProvider = ({ children}) => {
     const url = `${url2}?name=${busqueda}`;
     //-----------------------------------------
     const { datos, cargando, error } = useAPI(url); 
-    console.log("contexto"); 
+    //console.log("contexto"); 
 
     return(
         <ContextoApi.Provider value= {{ datos, cargando, error, busqueda, setBusqueda }} >

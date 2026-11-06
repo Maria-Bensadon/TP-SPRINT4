@@ -8,20 +8,26 @@ export const useAPI = (url) => {
 
   useEffect(() => {
     const fetchApi = async () => {
+
       setCargando(true);
       setError(null);
+
       // bloque try catch
       try {
         const respuesta = await fetch(url);
+
         if (!respuesta) {
           console.error("error al obtener los datos");
         }
+
         const resultado = await respuesta.json();
         setDatos(resultado);
-        console.log(resultado);
+        //console.log(resultado);
+
       } catch (error) {
         setError(error);
         //console.error("error al usar la api", error);
+        
       } finally {
         setCargando(false);
       }
