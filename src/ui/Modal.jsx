@@ -1,4 +1,8 @@
+
+
 export const Modal = ({ setPanelAbierto, children }) => {
+
+
   return (
     // contenedor
     <section className="fixed inset-0 z-30 bg-surface-container-lowest/70 backdrop-blur-sm" aria-label="Cerrar" onClick={setPanelAbierto}>
